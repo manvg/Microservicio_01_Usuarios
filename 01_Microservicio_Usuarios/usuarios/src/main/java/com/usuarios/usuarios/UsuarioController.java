@@ -37,8 +37,8 @@ public class UsuarioController {
         lstUsuarios.add(new Usuario(2, "Roberto", "Torres", "Martinez", "mmartinez@duoc.cl", "123456", 84568542, "", fechaIngresoU2, (new Perfil(2, "Contabilidad")), true));
         lstUsuarios.add(new Usuario(3, "Silvia", "Acosta", "Lopez", "sacosta@duoc.cl", "123456", 84575325, "", fechaIngresoU3, (new Perfil(3, "Ventas")), true));
         lstUsuarios.add(new Usuario(4, "María ", "Aguirre", "Torres", "jgimenez@duoc.cl", "123456", 84575325, "", fechaIngresoU4, (new Perfil(3, "Ventas")), true));
-        lstUsuarios.add(new Usuario(5, "Carlos ", "Herrera", "Diaz", "cherrera@duoc.cl", "123456", 75468598, "", fechaIngresoU5, (new Perfil(4, "Cliente")), true));
-        lstUsuarios.add(new Usuario(6, "Roberto", "Torres", "Alvarez", "rtorres@duoc.cl", "123456", 84568542, "", fechaIngresoU6, (new Perfil(4, "Cliente")), true));
+        lstUsuarios.add(new Usuario(5, "Carlos ", "Herrera", "Diaz", "cherrera@duoc.cl", "123456", 75468598, "", fechaIngresoU5, (new Perfil(4, "Cliente")), false));
+        lstUsuarios.add(new Usuario(6, "Roberto", "Torres", "Alvarez", "rtorres@duoc.cl", "123456", 84568542, "", fechaIngresoU6, (new Perfil(4, "Cliente")), false));
     }
     //#endregion
     
@@ -112,7 +112,7 @@ public class UsuarioController {
     //Obtener lista con información de la cantidad de usuarios por cada departamento
     @GetMapping("/cantidad-usuarios")
     public List<InfoUsuariosPorPerfil> getCantidasUsuariosPorDeparamento(){
-        List<InfoUsuariosPorPerfil> lstInfoUsuariosPorDpto= new ArrayList<>();
+        List<InfoUsuariosPorPerfil> lstInfoUsuariosPorPerfil= new ArrayList<>();
         int contadorUsuarios = 0;
 
         for (Perfil perfil : lstPerfiles){
@@ -121,10 +121,10 @@ public class UsuarioController {
                     contadorUsuarios++;
                 }
             }
-            lstInfoUsuariosPorDpto.add(new InfoUsuariosPorPerfil(perfil.getNombre(), contadorUsuarios));
+            lstInfoUsuariosPorPerfil.add(new InfoUsuariosPorPerfil(perfil.getNombre(), contadorUsuarios));
             contadorUsuarios = 0;
         }
         
-        return lstInfoUsuariosPorDpto;
+        return lstInfoUsuariosPorPerfil;
     }
 }

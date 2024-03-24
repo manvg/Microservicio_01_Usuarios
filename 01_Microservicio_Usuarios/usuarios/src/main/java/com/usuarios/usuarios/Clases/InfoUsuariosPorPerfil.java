@@ -1,16 +1,16 @@
 package com.usuarios.usuarios.Clases;
 
 public class InfoUsuariosPorPerfil {
-    private String departamento;
+    private String perfil;
     private Integer cantidad;
 
-    public InfoUsuariosPorPerfil(String departamento, Integer cantidad){
-        this.departamento = departamento;
+    public InfoUsuariosPorPerfil(String perfil, Integer cantidad){
+        this.perfil = perfil;
         this.cantidad = cantidad;
     }
 
     public String getDepartamento(){
-        return departamento;
+        return perfil;
     }
 
     public Integer getCantidad(){
