@@ -94,6 +94,9 @@ public class UsuarioController {
     //Obtener lista de usuarios según rango de fecha de creación
     @GetMapping("/usuarios/rango-fecha/{fechaDesde}/{fechaHasta}")
     public List<Usuario> getUsuariosRangoFecha(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaDesde, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaHasta){
+        if (fechaHasta.isBefore(fechaDesde)) {
+            throw new CustomException("Rango de fecha no válido.");
+        }
         List<Usuario> lstUsuariosRangoFecha = new ArrayList<>();
         for(Usuario usuario : lstUsuarios){
             if (!usuario.getFechaCreacion().isBefore(fechaDesde) && !usuario.getFechaCreacion().isAfter(fechaHasta)) {
