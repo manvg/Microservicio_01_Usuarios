@@ -36,7 +36,7 @@ public class UsuarioController {
         lstUsuarios.add(new Usuario(1, "Manuel", "Valdés", "Guerra", "mvaldes@duoc.cl", "123456", 984576321, "", fechaIngresoU1, (new Perfil(1, "Administrador")), true));
         lstUsuarios.add(new Usuario(2, "Roberto", "Torres", "Martinez", "mmartinez@duoc.cl", "123456", 84568542, "", fechaIngresoU2, (new Perfil(2, "Contabilidad")), true));
         lstUsuarios.add(new Usuario(3, "Silvia", "Acosta", "Lopez", "sacosta@duoc.cl", "123456", 84575325, "", fechaIngresoU3, (new Perfil(3, "Ventas")), true));
-        lstUsuarios.add(new Usuario(4, "María ", "Aguirre", "Torres", "jgimenez@duoc.cl", "123456", 84575325, "", fechaIngresoU4, (new Perfil(3, "Ventas")), true));
+        lstUsuarios.add(new Usuario(4, "María ", "Aguirre", "Torres", "jgimenez@duoc.cl", "123456", 84575325, "", fechaIngresoU4, (new Perfil(3, "Ventas")), false));
         lstUsuarios.add(new Usuario(5, "Carlos ", "Herrera", "Diaz", "cherrera@duoc.cl", "123456", 75468598, "", fechaIngresoU5, (new Perfil(4, "Cliente")), false));
         lstUsuarios.add(new Usuario(6, "Roberto", "Torres", "Alvarez", "rtorres@duoc.cl", "123456", 84568542, "", fechaIngresoU6, (new Perfil(4, "Cliente")), false));
     }
@@ -109,7 +109,7 @@ public class UsuarioController {
         }
     }
 
-    //Obtener lista con información de la cantidad de usuarios por cada departamento
+    //Obtener lista con información de la cantidad de usuarios por cada perfil
     @GetMapping("/cantidad-usuarios")
     public List<InfoUsuariosPorPerfil> getCantidasUsuariosPorDeparamento(){
         List<InfoUsuariosPorPerfil> lstInfoUsuariosPorPerfil= new ArrayList<>();

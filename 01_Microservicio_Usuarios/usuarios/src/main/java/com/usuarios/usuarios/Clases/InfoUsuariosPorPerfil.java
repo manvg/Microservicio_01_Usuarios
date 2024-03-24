@@ -9,7 +9,7 @@ public class InfoUsuariosPorPerfil {
         this.cantidad = cantidad;
     }
 
-    public String getDepartamento(){
+    public String getPerfil(){
         return perfil;
     }
 
