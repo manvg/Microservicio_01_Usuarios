@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 import org.springframework.web.bind.annotation.RestController;
-import com.usuarios.usuarios.Clases.Departamento;
 import com.usuarios.usuarios.Clases.InfoUsuariosPorPerfil;
 import com.usuarios.usuarios.Clases.Perfil;
 import com.usuarios.usuarios.Clases.Usuario;
@@ -19,7 +18,6 @@ public class UsuarioController {
     //#region Carga de datos
     List<Usuario> lstUsuarios = new ArrayList<>();
     List<Perfil> lstPerfiles = new ArrayList<>();
-    List<Departamento> lstDepartamentos = new ArrayList<>();
 
     public UsuarioController(){
         //Cargar Perfiles
@@ -117,13 +115,13 @@ public class UsuarioController {
         List<InfoUsuariosPorPerfil> lstInfoUsuariosPorDpto= new ArrayList<>();
         int contadorUsuarios = 0;
 
-        for (Departamento depto : lstDepartamentos){
+        for (Perfil perfil : lstPerfiles){
             for(Usuario usuario : lstUsuarios){
-                if (usuario.getPerfil().getIdPerfil() == depto.getidDepartamento()) {
+                if (usuario.getPerfil().getIdPerfil() == perfil.getIdPerfil()) {
                     contadorUsuarios++;
                 }
             }
-            lstInfoUsuariosPorDpto.add(new InfoUsuariosPorPerfil(depto.getNombre(), contadorUsuarios));
+            lstInfoUsuariosPorDpto.add(new InfoUsuariosPorPerfil(perfil.getNombre(), contadorUsuarios));
             contadorUsuarios = 0;
         }
         
